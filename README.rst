@@ -2,7 +2,14 @@ PyJSON5x
 ==========
 
 
-This package is the same as pyjson5, but interprets True and False as booleans. For more information, see the source repository. https://github.com/Kijewski/pyjson5
+This package is the same as pyjson5, but this library does some crude decoding. 
+
+- interprets True and False as booleans.
+
+- strive to properly handle unclosed brackets.
+
+
+For more information, see the source repository. https://github.com/Kijewski/pyjson5
 
 
 A JSON5 serializer and parser library for Python 3 written in

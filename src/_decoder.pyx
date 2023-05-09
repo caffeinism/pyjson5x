@@ -166,9 +166,6 @@ cdef int32_t _get_escape_sequence(ReaderRef reader,
         return _get_escaped_unicode_maybe_surrogate(reader, start)
     elif c0 == b'U':
         return _get_hex_character(reader, 8)
-    elif expect(b'1' <= c0 <= b'9', False):
-        _raise_expected_s('escape sequence', start, c0)
-        return -2
     elif _is_line_terminator(c0):
         if c0 != 0x000D:
             return -1
@@ -369,7 +366,7 @@ cdef object _decode_number_any(ReaderRef reader, StackHeapString[char] &buf,
             _raise_unclosed('NumericLiteral', start)
 
         if not _reader_good(reader):
-            c1 = -1
+            c1 = NO_EXTRA_DATA
             break
 
         c0 = _reader_get(reader)
@@ -441,8 +438,8 @@ cdef object _decode_number(ReaderRef reader, int32_t *c_in_out):
 #  0: data found
 # -1: exception (exhausted)
 cdef uint32_t _skip_comma(ReaderRef reader, Py_ssize_t start,
-                          uint32_t terminator, const char *what,
-                          int32_t *c_in_out) except -1:
+                          uint32_t terminator, uint32_t counter_terminator, 
+                          const char *what, int32_t *c_in_out) except -1:
     cdef int32_t c0
     cdef uint32_t c1
     cdef boolean needs_comma
@@ -455,11 +452,16 @@ cdef uint32_t _skip_comma(ReaderRef reader, Py_ssize_t start,
     while True:
         c0 = _skip_to_data_sub(reader, c1)
         if c0 < 0:
-            break
+            c_in_out[0] = NO_EXTRA_DATA
+            return 1
 
         c1 = cast_to_uint32(c0)
         if c1 == terminator:
             c_in_out[0] = NO_EXTRA_DATA
+            return 1
+        
+        if c1 == counter_terminator:
+            c_in_out[0] = c0
             return 1
 
         if c1 != b',':
@@ -527,7 +529,9 @@ cdef unicode _decode_identifier_name(ReaderRef reader, int32_t *c_in_out):
     )
 
 
-cdef boolean _decode_object(ReaderRef reader, object result) except False:
+cdef boolean _decode_object(
+    ReaderRef reader, object result, int32_t *c_in_out
+) except False:
     cdef int32_t c0
     cdef uint32_t c1
     cdef Py_ssize_t start
@@ -542,6 +546,7 @@ cdef boolean _decode_object(ReaderRef reader, object result) except False:
     if expect(c0 >= 0, True):
         c1 = cast_to_uint32(c0)
         if c1 == b'}':
+            c_in_out[0] = NO_EXTRA_DATA
             return True
 
         while True:
@@ -580,18 +585,21 @@ cdef boolean _decode_object(ReaderRef reader, object result) except False:
             PyDict_SetItem(result, key, value)
 
             done = _skip_comma(
-                reader, start, <unsigned char>b'}', b'object', &c0,
+                reader, start, <unsigned char>b'}',
+                <unsigned char>b']', b'object', &c0,
             )
             if done:
+                c_in_out[0] = c0
                 return True
 
             c1 = cast_to_uint32(c0)
 
     _raise_unclosed(b'object', start)
-    return False
 
 
-cdef boolean _decode_array(ReaderRef reader, object result) except False:
+cdef boolean _decode_array(
+    ReaderRef reader, object result, int32_t *c_in_out
+) except False:
     cdef int32_t c0
     cdef uint32_t c1
     cdef Py_ssize_t start
@@ -605,6 +613,7 @@ cdef boolean _decode_array(ReaderRef reader, object result) except False:
     if expect(c0 >= 0, True):
         c1 = cast_to_uint32(c0)
         if c1 == b']':
+            c_in_out[0] = NO_EXTRA_DATA
             return True
 
         while True:
@@ -615,14 +624,17 @@ cdef boolean _decode_array(ReaderRef reader, object result) except False:
                 raise
 
             if expect(c0 < 0, False):
+                c_in_out[0] = NO_EXTRA_DATA
                 break
 
             PyList_Append(result, value)
 
             done = _skip_comma(
-                reader, start, <unsigned char>b']', b'array', &c0,
+                reader, start, <unsigned char>b']',
+                <unsigned char>b'}', b'array', &c0,
             )
             if done:
+                c_in_out[0] = c0
                 return True
 
     _raise_unclosed(b'array', start)
@@ -686,7 +698,7 @@ cdef object _decode_nan(ReaderRef reader, int32_t *c_in_out):
 
 
 cdef object _decode_recursive_enter(ReaderRef reader, int32_t *c_in_out):
-    cdef boolean (*fn)(ReaderRef reader, object result) except False
+    cdef boolean (*fn)(ReaderRef reader, object result, int32_t *c_in_out) except False
     cdef object result
     cdef int32_t c0
     cdef uint32_t c1
@@ -704,7 +716,7 @@ cdef object _decode_recursive_enter(ReaderRef reader, int32_t *c_in_out):
 
     _reader_enter(reader)
     try:
-        fn(reader, result)
+        fn(reader, result, &c0)
     except RecursionError:
         _raise_nesting(_reader_tell(reader), result)
     except _DecoderException as ex:
@@ -713,7 +725,7 @@ cdef object _decode_recursive_enter(ReaderRef reader, int32_t *c_in_out):
     finally:
         _reader_leave(reader)
 
-    c_in_out[0] = NO_EXTRA_DATA
+    c_in_out[0] = c0
     return result
 
 
