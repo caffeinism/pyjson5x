@@ -1,5 +1,9 @@
-PyJSON5
+PyJSON5x
 ==========
+
+
+This package is the same as pyjson5, but interprets True and False as booleans. For more information, see the source repository. https://github.com/Kijewski/pyjson5
+
 
 A JSON5 serializer and parser library for Python 3 written in
 `Cython <http://cython.org/>`_.
@@ -30,7 +34,7 @@ unless the nesting level is absurdly high.
 Functions
 ---------
 
-You can find the full documentation online at https://pyjson5x.readthedocs.io/en/latest/.
+You can find the full documentation online at https://pyjson5.readthedocs.io/en/latest/.
 Or simply call ``help(pyjson5x)``. :-)
 
 The library supplies load(s) and dump(s) functions, so you can use it as a
