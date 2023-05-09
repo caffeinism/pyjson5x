@@ -2,16 +2,16 @@ Exceptions
 ==========
 
 .. inheritance-diagram::
-    pyjson5.Json5Exception
-    pyjson5.Json5EncoderException
-    pyjson5.Json5UnstringifiableType
-    pyjson5.Json5DecoderException
-    pyjson5.Json5NestingTooDeep
-    pyjson5.Json5EOF
-    pyjson5.Json5IllegalCharacter
-    pyjson5.Json5ExtraData
-    pyjson5.Json5IllegalType
+    pyjson5x.Json5Exception
+    pyjson5x.Json5EncoderException
+    pyjson5x.Json5UnstringifiableType
+    pyjson5x.Json5DecoderException
+    pyjson5x.Json5NestingTooDeep
+    pyjson5x.Json5EOF
+    pyjson5x.Json5IllegalCharacter
+    pyjson5x.Json5ExtraData
+    pyjson5x.Json5IllegalType
 
-.. autoclass:: pyjson5.Json5Exception
+.. autoclass:: pyjson5x.Json5Exception
     :members:
     :inherited-members:

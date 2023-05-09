@@ -50,9 +50,9 @@ cdef _options_from_ascii(Options self):
 @auto_pickle(False)
 cdef class Options:
     '''
-    Customizations for the :func:`encoder_*(...) <pyjson5.encoder>` function family.
+    Customizations for the :func:`encoder_*(...) <pyjson5x.encoder>` function family.
 
-    Immutable. Use :meth:`Options.update(**kw) <pyjson5.Options.update>` to create a **new** Options instance.
+    Immutable. Use :meth:`Options.update(**kw) <pyjson5x.Options.update>` to create a **new** Options instance.
 
     Parameters
     ----------

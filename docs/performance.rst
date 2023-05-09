@@ -12,9 +12,9 @@ The library has about the same speed as the shipped ``json`` module for *pure* J
 * Dataset: https://github.com/zemirco/sf-city-lots-json
 * Version: Python 3.9.1+ (default, Feb  5 2021, 13:46:56)
 * CPU: AMD Ryzen 7 2700 @ 3.7GHz
-* :func:`pyjson5.decode`: **2.08 s** ± 7.49 ms per loop *(lower is better)*
+* :func:`pyjson5x.decode`: **2.08 s** ± 7.49 ms per loop *(lower is better)*
 * :func:`json.loads`: **2.71 s** ± 12.1 ms per loop
-* The decoder works correcty: ``json.loads(content) == pyjson5.loads(content)``
+* The decoder works correcty: ``json.loads(content) == pyjson5x.loads(content)``
 
 
 Encoder Performance
@@ -22,15 +22,15 @@ Encoder Performance
 
 The encoder generates pure JSON data if there are no infinite or NaN values in the input, which are invalid in JSON.
 The serialized data is XML-safe, i.e. there are no cheverons ``<>``, ampersands ``&``, apostrophes ``'`` or control characters in the output.
-The output is always ASCII regardless if you call :func:`pyjson5.encode` or :func:`pyjson5.encode_bytes`.
+The output is always ASCII regardless if you call :func:`pyjson5x.encode` or :func:`pyjson5x.encode_bytes`.
 
 * Dataset: https://github.com/zemirco/sf-city-lots-json
 * Python 3.9.1+ (default, Feb  5 2021, 13:46:56) 
 * CPU: AMD Ryzen 7 2700 @ 3.7GHz
-* :func:`pyjson5.encode`: **1.37** s ± 19.2 per loop *(lower is better)*
+* :func:`pyjson5x.encode`: **1.37** s ± 19.2 per loop *(lower is better)*
 * :func:`json.dumps`: **3.66** s ± 72.6 ms per loop
 * :func:`json.dumps` + :func:`xml.sax.saxutils.escape`: **4.01** s ± 21.3 ms per loop
-* The encoder works correcty: ``obj == json.loads(pyjson5.encode(obj))``
+* The encoder works correcty: ``obj == json.loads(pyjson5x.encode(obj))``
 
 
 Benchmark
@@ -40,7 +40,7 @@ Using `Ultrajson's benchmark <https://github.com/ultrajson/ultrajson/blob/197a7f
 you can tell for which kind of data PyJSON5 is fast, and for which data it is slow in comparison *(higher is better)*:
 
 +-----------------------------------------------------------+-------------+------------+------------+------------+
-|                                                           |  json       | pyjson5    | ujson      | orjson     |
+|                                                           |  json       | pyjson5x    | ujson      | orjson     |
 +===========================================================+=============+============+============+============+
 | **Array with 256 doubles**                                |             |            |            |            |
 +-----------------------------------------------------------+-------------+------------+------------+------------+

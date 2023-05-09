@@ -11,74 +11,74 @@ Quick Decoder Summary
 
 .. autosummary::
 
-    ~pyjson5.decode
-    ~pyjson5.decode_latin1
-    ~pyjson5.decode_buffer
-    ~pyjson5.decode_callback
-    ~pyjson5.decode_io
-    ~pyjson5.load
-    ~pyjson5.loads
-    ~pyjson5.Json5DecoderException
-    ~pyjson5.Json5NestingTooDeep
-    ~pyjson5.Json5EOF
-    ~pyjson5.Json5IllegalCharacter
-    ~pyjson5.Json5ExtraData
-    ~pyjson5.Json5IllegalType
+    ~pyjson5x.decode
+    ~pyjson5x.decode_latin1
+    ~pyjson5x.decode_buffer
+    ~pyjson5x.decode_callback
+    ~pyjson5x.decode_io
+    ~pyjson5x.load
+    ~pyjson5x.loads
+    ~pyjson5x.Json5DecoderException
+    ~pyjson5x.Json5NestingTooDeep
+    ~pyjson5x.Json5EOF
+    ~pyjson5x.Json5IllegalCharacter
+    ~pyjson5x.Json5ExtraData
+    ~pyjson5x.Json5IllegalType
 
 
 Full Decoder Description
 ------------------------
 
-.. autofunction:: pyjson5.decode
+.. autofunction:: pyjson5x.decode
 
-.. autofunction:: pyjson5.decode_latin1
+.. autofunction:: pyjson5x.decode_latin1
 
-.. autofunction:: pyjson5.decode_buffer
+.. autofunction:: pyjson5x.decode_buffer
 
-.. autofunction:: pyjson5.decode_callback
+.. autofunction:: pyjson5x.decode_callback
 
-.. autofunction:: pyjson5.decode_io
+.. autofunction:: pyjson5x.decode_io
 
 
 Decoder Compatibility Functions
 -------------------------------
 
-.. autofunction:: pyjson5.load
+.. autofunction:: pyjson5x.load
 
-.. autofunction:: pyjson5.loads
+.. autofunction:: pyjson5x.loads
 
 
 Decoder Exceptions
 ------------------
 
 .. inheritance-diagram::
-    pyjson5.Json5DecoderException
-    pyjson5.Json5NestingTooDeep
-    pyjson5.Json5EOF
-    pyjson5.Json5IllegalCharacter
-    pyjson5.Json5ExtraData
-    pyjson5.Json5IllegalType
+    pyjson5x.Json5DecoderException
+    pyjson5x.Json5NestingTooDeep
+    pyjson5x.Json5EOF
+    pyjson5x.Json5IllegalCharacter
+    pyjson5x.Json5ExtraData
+    pyjson5x.Json5IllegalType
 
-.. autoclass:: pyjson5.Json5DecoderException
+.. autoclass:: pyjson5x.Json5DecoderException
     :members:
     :inherited-members:
 
-.. autoclass:: pyjson5.Json5NestingTooDeep
+.. autoclass:: pyjson5x.Json5NestingTooDeep
     :members:
     :inherited-members:
 
-.. autoclass:: pyjson5.Json5EOF
+.. autoclass:: pyjson5x.Json5EOF
     :members:
     :inherited-members:
 
-.. autoclass:: pyjson5.Json5IllegalCharacter
+.. autoclass:: pyjson5x.Json5IllegalCharacter
     :members:
     :inherited-members:
 
-.. autoclass:: pyjson5.Json5ExtraData
+.. autoclass:: pyjson5x.Json5ExtraData
     :members:
     :inherited-members:
 
-.. autoclass:: pyjson5.Json5IllegalType
+.. autoclass:: pyjson5x.Json5IllegalType
     :members:
     :inherited-members:

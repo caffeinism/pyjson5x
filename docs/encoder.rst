@@ -18,32 +18,32 @@ Quick Encoder Summary
 
 .. autosummary::
 
-    ~pyjson5.encode
-    ~pyjson5.encode_bytes
-    ~pyjson5.encode_callback
-    ~pyjson5.encode_io
-    ~pyjson5.encode_noop
-    ~pyjson5.dump
-    ~pyjson5.dumps
-    ~pyjson5.Options
-    ~pyjson5.Json5EncoderException
-    ~pyjson5.Json5UnstringifiableType
+    ~pyjson5x.encode
+    ~pyjson5x.encode_bytes
+    ~pyjson5x.encode_callback
+    ~pyjson5x.encode_io
+    ~pyjson5x.encode_noop
+    ~pyjson5x.dump
+    ~pyjson5x.dumps
+    ~pyjson5x.Options
+    ~pyjson5x.Json5EncoderException
+    ~pyjson5x.Json5UnstringifiableType
 
 
 Full Encoder Description
 ------------------------
 
-.. autofunction:: pyjson5.encode
+.. autofunction:: pyjson5x.encode
 
-.. autofunction:: pyjson5.encode_bytes
+.. autofunction:: pyjson5x.encode_bytes
 
-.. autofunction:: pyjson5.encode_callback
+.. autofunction:: pyjson5x.encode_callback
 
-.. autofunction:: pyjson5.encode_io
+.. autofunction:: pyjson5x.encode_io
 
-.. autofunction:: pyjson5.encode_noop
+.. autofunction:: pyjson5x.encode_noop
 
-.. autoclass:: pyjson5.Options
+.. autoclass:: pyjson5x.Options
     :members:
     :inherited-members:
 
@@ -51,23 +51,23 @@ Full Encoder Description
 Encoder Compatibility Functions
 -------------------------------
 
-.. autofunction:: pyjson5.dump
+.. autofunction:: pyjson5x.dump
 
-.. autofunction:: pyjson5.dumps
+.. autofunction:: pyjson5x.dumps
 
 
 Encoder Exceptions
 ------------------
 
 .. inheritance-diagram::
-    pyjson5.Json5Exception
-    pyjson5.Json5EncoderException
-    pyjson5.Json5UnstringifiableType
+    pyjson5x.Json5Exception
+    pyjson5x.Json5EncoderException
+    pyjson5x.Json5UnstringifiableType
 
-.. autoclass:: pyjson5.Json5EncoderException
+.. autoclass:: pyjson5x.Json5EncoderException
     :members:
     :inherited-members:
 
-.. autoclass:: pyjson5.Json5UnstringifiableType
+.. autoclass:: pyjson5x.Json5UnstringifiableType
     :members:
     :inherited-members:

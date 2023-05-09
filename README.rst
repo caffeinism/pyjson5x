@@ -30,8 +30,8 @@ unless the nesting level is absurdly high.
 Functions
 ---------
 
-You can find the full documentation online at https://pyjson5.readthedocs.io/en/latest/.
-Or simply call ``help(pyjson5)``. :-)
+You can find the full documentation online at https://pyjson5x.readthedocs.io/en/latest/.
+Or simply call ``help(pyjson5x)``. :-)
 
 The library supplies load(s) and dump(s) functions, so you can use it as a
 drop-in replacement for Python's builtin ``json`` module, but you *should*

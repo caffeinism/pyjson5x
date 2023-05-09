@@ -2,8 +2,8 @@ include LICENSE
 include make_*.py
 include sha512sum.py
 include Makefile
-include pyjson5.cpp
-include pyjson5.pyx
+include pyjson5x.cpp
+include pyjson5x.pyx
 include pyproject.toml
 include requires.txt
 include setup.cfg

@@ -52,7 +52,7 @@ latex_documents = [
 ]
 
 man_pages = [
-    (master_doc, 'pyjson5', u'PyJSON5 Documentation',
+    (master_doc, 'pyjson5x', u'PyJSON5 Documentation',
      [author], 1)
 ]
 

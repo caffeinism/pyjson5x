@@ -9,7 +9,7 @@ from logging import basicConfig, DEBUG, getLogger
 from math import isnan
 from pathlib import Path
 
-from pyjson5 import decode, encode
+from pyjson5x import decode, encode
 
 
 def eq_with_nans(left, right):

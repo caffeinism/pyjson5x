@@ -9,8 +9,8 @@ extra_compile_args = [
 
 setup(
     ext_modules=[Extension(
-        'pyjson5.pyjson5',
-        sources=['pyjson5.pyx'],
+        'pyjson5x.pyjson5x',
+        sources=['pyjson5x.pyx'],
         include_dirs=['src'],
         extra_compile_args=extra_compile_args,
         extra_link_args=extra_compile_args,

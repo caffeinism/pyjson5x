@@ -26,7 +26,7 @@ Installation
 
 .. code:: bash
 
-    $ pip install pyjson5
+    $ pip install pyjson5x
 
 
 Table of Contents
@@ -47,22 +47,22 @@ Quick Summary
 
 .. autosummary::
 
-    ~pyjson5.decode
-    ~pyjson5.decode_buffer
-    ~pyjson5.decode_callback
-    ~pyjson5.decode_io
-    ~pyjson5.load
-    ~pyjson5.loads
-    ~pyjson5.encode
-    ~pyjson5.encode_bytes
-    ~pyjson5.encode_callback
-    ~pyjson5.encode_io
-    ~pyjson5.encode_noop
-    ~pyjson5.dump
-    ~pyjson5.dumps
-    ~pyjson5.Options
-    ~pyjson5.Json5EncoderException
-    ~pyjson5.Json5DecoderException
+    ~pyjson5x.decode
+    ~pyjson5x.decode_buffer
+    ~pyjson5x.decode_callback
+    ~pyjson5x.decode_io
+    ~pyjson5x.load
+    ~pyjson5x.loads
+    ~pyjson5x.encode
+    ~pyjson5x.encode_bytes
+    ~pyjson5x.encode_callback
+    ~pyjson5x.encode_io
+    ~pyjson5x.encode_noop
+    ~pyjson5x.dump
+    ~pyjson5x.dumps
+    ~pyjson5x.Options
+    ~pyjson5x.Json5EncoderException
+    ~pyjson5x.Json5DecoderException
 
 
 Compatibility
